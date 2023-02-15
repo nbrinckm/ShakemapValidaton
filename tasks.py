@@ -9,3 +9,10 @@ def download_example_file():
     if not output_file.exists():
         invoke.run(f"wget {url}")
 
+
+@invoke.task
+def download_schema():
+    url = "https://raw.githubusercontent.com/riesgos/gfz-command-line-tool-repository/master/src/main/resources/org/n52/gfz/riesgos/validators/xml/shakemap.xsd"
+    output_file = pathlib.Path(pathlib.Path(url).name)
+    if not output_file.exists():
+        invoke.run(f"wget {url}")
