@@ -22,10 +22,6 @@ def validate_cli():
     input_file = "example_out_shakemap_correlated.xml"
     schema_file = "shakemap.xsd"
 
-    # Normally it doesn't validate.
-    # There are two ways to make it work:
-    # 1) Put the seed in some other attribute (like shakemap_version) in the xml file.
-    # 2) Add an optional seed attribute to the event_type in the xsd file.
     invoke.run(f"xmllint --noout --schema {schema_file} {input_file}")
 
 @invoke.task
@@ -38,10 +34,6 @@ def validate_java():
     input_file = "example_out_shakemap_correlated.xml"
     schema_file = "shakemap.xsd"
 
-    # Normally it doesn't validate.
-    # There are two ways to make it work:
-    # 1) Put the seed in some other attribute (like shakemap_version) in the xml file.
-    # 2) Add an optional seed attribute to the event_type in the xsd file.
     invoke.run(f"java -jar javavalidator/target/gfz-riesgos-xml-validator-1.0-SNAPSHOT.jar {schema_file} {input_file}")
 
 @invoke.task
